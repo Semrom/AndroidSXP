@@ -14,7 +14,7 @@ Procédure pour enlever l'erreur :
 
 3) Récupérer le dossier racine de "appcompat_v7" puis valider la boîte de dialogue.
 
-4) Le projet appraît ensuite dans la colonne de gauche.
+4) Le projet "appcompat_v7" appraît ensuite dans la colonne de gauche.
 
 5) Sélectionner le projet AndroidSXP puis, dans Eclipse, faire "Project > Properties", cliquer sur le menu "Android" de la boîte de dialogue et ensuite cliquer sur le bouton "add" dans la partie "Library".
 
@@ -23,6 +23,7 @@ Procédure pour enlever l'erreur :
 7) Cliquer enfin sur "Apply" puis "OK".
 
 Les erreurs doivent avoir disparues. 
-Notez que le projet "appcompat_v7" doit être ouvert pendant toute la manipulation du projet.
+
+Notez que le projet "appcompat_v7" doit être ouvert pendant toute la manipulation du projet SXP.
 
 Romain Semler ©2016
