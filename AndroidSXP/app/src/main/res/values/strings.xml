@@ -6,7 +6,12 @@
     <string name="jeff">KATENDE Jeff</string>
     <string name="romain">SEMLER Romain</string>
     <string name="remi">SOULIER Rémi</string>
+    <string name="button_start">Commencer</string>
+    <string name="button_about">À Propos</string>
 
     <!-- activity_about -->
     <string name="about_title">À Propos</string>
+    <string name="about_description">Android Secure eXchange Protocol est une application créée
+    dans le cadre des cours de Génie Logiciel, en Master 1 Informatique, à l\'Université d\'Aix-Marseille.</string>
+    <string name="button_back">Retour</string>
 </resources>

@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.sxp.androidsxp.MainActivity">
 
     <TextView
@@ -78,10 +79,10 @@
         android:textAlignment="center" />
 
     <Button
-        android:text="À Propos"
+        android:text="@string/button_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/activity_main_aboutButton"
         android:background="@color/colorBlueTheme2"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
@@ -92,14 +93,14 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Commencer"
+        android:text="@string/button_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:id="@+id/activity_main_startButton"
         android:background="@color/colorBlueTheme2"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/activity_main_aboutButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="13dp"
