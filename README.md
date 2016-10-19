@@ -1,6 +1,8 @@
 # AndroidSXP
 Test Hello World qui fonctionne correctement sur émulateur. 
 
+Il y a une version pour Ecplise et une autre pour Android Studio.
+
 IMPORTANT : Si vous utilisez Eclipse ainsi que les dernières versions du SDK Android, une erreur peut survenir dans le projet (au niveau du fichier "res > values > styles.xml" à la ligne "Theme.AppCompat.Light").
 Si c'est le cas, cela signifie que le projet doit contenir la librairie "appcompat_v7" dont le projet Android peut être téléchargé ici :
 

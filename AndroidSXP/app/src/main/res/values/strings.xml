@@ -1,0 +1,12 @@
+<resources>
+    <!-- activity_main -->
+    <string name="app_name">AndroidSXP</string>
+    <string name="texte_hello">Android Secure eXchange Protocol</string>
+    <string name="thomas">ALLAM Thomas</string>
+    <string name="jeff">KATENDE Jeff</string>
+    <string name="romain">SEMLER Romain</string>
+    <string name="remi">SOULIER Rémi</string>
+
+    <!-- activity_about -->
+    <string name="about_title">À Propos</string>
+</resources>
