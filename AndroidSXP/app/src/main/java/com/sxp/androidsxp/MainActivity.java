@@ -17,9 +17,20 @@ public class MainActivity extends AppCompatActivity {
         aPropos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent aboutActivity = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(aboutActivity);
+            Intent aboutActivity = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(aboutActivity);
             }
         });
+
+        Button commencer = (Button) findViewById(R.id.activity_main_startButton);
+        commencer.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+             Intent webViewActivity = new Intent(MainActivity.this, WebViewActivity.class);
+             startActivity(webViewActivity);
+             }
+         }
+
+        );
     }
 }
