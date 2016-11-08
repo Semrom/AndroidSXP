@@ -3,10 +3,10 @@ package com.sxp.core.crypt.impl.signatures;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
-import com.crypt.api.hashs.Hasher;
-import com.crypt.base.AbstractSigner;
-import com.crypt.impl.hashs.SHA256Hasher;
-import com.model.entity.ElGamalKey;
+import com.sxp.core.crypt.api.hashs.Hasher;
+import com.sxp.core.crypt.base.AbstractSigner;
+import com.sxp.core.crypt.impl.hashs.SHA256Hasher;
+import com.sxp.core.model.entity.ElGamalKey;
 
 /**
  * Implementation of ElGamal signatures

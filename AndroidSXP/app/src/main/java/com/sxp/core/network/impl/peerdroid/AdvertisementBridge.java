@@ -114,7 +114,7 @@ public class AdvertisementBridge extends Advertisement{
         return "jxta:" + this.getClass().getName();
     }
 
-    public com.network.api.advertisement.Advertisement getAdvertisement() {
+    public com.sxp.core.network.api.advertisement.Advertisement getAdvertisement() {
         return advertisement;
     }
 }

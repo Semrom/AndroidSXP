@@ -21,8 +21,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import com.controller.tools.BigIntegerSerializer;
-import com.controller.tools.BigIntegerDeserializer;
+import com.sxp.core.controller.tools.BigIntegerSerializer;
+import com.sxp.core.controller.tools.BigIntegerDeserializer;
 
 @XmlRootElement
 @Entity

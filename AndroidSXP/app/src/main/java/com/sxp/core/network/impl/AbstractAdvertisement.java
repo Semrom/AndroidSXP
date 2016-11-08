@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import org.jdom2.Document;
 import org.jdom2.Element;
 
-import com.network.api.Peer;
-import com.network.api.advertisement.Advertisement;
-import com.network.api.annotation.AdvertisementAttribute;
-import com.network.api.annotation.ServiceName;
+import com.sxp.core.network.api.Peer;
+import com.sxp.core.network.api.advertisement.Advertisement;
+import com.sxp.core.network.api.annotation.AdvertisementAttribute;
+import com.sxp.core.network.api.annotation.ServiceName;
 
 public abstract class AbstractAdvertisement implements Advertisement{
 
