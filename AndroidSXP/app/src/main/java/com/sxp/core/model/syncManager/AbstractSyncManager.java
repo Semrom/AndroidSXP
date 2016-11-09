@@ -4,10 +4,15 @@ import com.sxp.core.model.api.SyncManager;
 
 import java.util.Collection;
 
-import javax.persistence.EntityManager;
+/*import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.Query;*/
+
+import com.sxp.core.correct.javax.persistence.EntityManagerFactory;
+import com.sxp.core.correct.javax.persistence.EntityManager;
+import com.sxp.core.correct.javax.persistence.Persistence;
+import com.sxp.core.correct.javax.persistence.Query;
 
 
 public class AbstractSyncManager<Entity> implements SyncManager<Entity> {

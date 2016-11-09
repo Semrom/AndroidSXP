@@ -4,7 +4,7 @@ package com.sxp.core.model.entity;
 import java.math.BigInteger;
 import java.util.Date;
 
-import javax.persistence.Entity;
+/*import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlRootElement;*/
 
 import org.eclipse.persistence.annotations.UuidGenerator;
 
@@ -24,46 +24,46 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.sxp.core.controller.tools.BigIntegerSerializer;
 import com.sxp.core.controller.tools.BigIntegerDeserializer;
 
-@XmlRootElement
-@Entity
+//@XmlRootElement
+//@Entity
 public class Item {
-    @XmlElement(name="id")
+    //@XmlElement(name="id")
     @UuidGenerator(name="uuid")
-    @Id
-    @GeneratedValue(generator="uuid")
+    //@Id
+    //@GeneratedValue(generator="uuid")
     private String id;
 
-    @XmlElement(name="title")
-    @NotNull
-    @Size(min = 3, max = 255)
+    //@XmlElement(name="title")
+    //@NotNull
+    //@Size(min = 3, max = 255)
     private String title;
 
-    @XmlElement(name="description")
-    @NotNull
-    @Size(min = 3, max = 2000)
+    //@XmlElement(name="description")
+    //@NotNull
+    //@Size(min = 3, max = 2000)
     private String description;
 
-    @XmlElement(name="createdAt")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
+    //@XmlElement(name="createdAt")
+    //@NotNull
+    //@Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private Date createdAt;
 
-    @XmlElement(name="pbkey")
-    @NotNull
-    @Lob
+    //@XmlElement(name="pbkey")
+    //@NotNull
+    //@Lob
     @JsonSerialize(using=BigIntegerSerializer.class)
     @JsonDeserialize(using=BigIntegerDeserializer.class)
     @JsonFormat(shape=JsonFormat.Shape.STRING)
     private BigInteger pbkey;
 
-    @XmlElement(name="username")
-    @NotNull
-    @Size(min = 2, max = 255)
+    //@XmlElement(name="username")
+    //@NotNull
+    //@Size(min = 2, max = 255)
     private String username;
 
-    @XmlElement(name="username")
-    @NotNull
+    //@XmlElement(name="username")
+    //@NotNull
     private String userid;
 
 
