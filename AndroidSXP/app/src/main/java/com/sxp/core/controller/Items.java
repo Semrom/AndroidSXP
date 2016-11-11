@@ -3,7 +3,7 @@ package com.sxp.core.controller;
 import java.util.Collection;
 import java.util.Date;
 
-import javax.ws.rs.Consumes;
+/*import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -12,7 +12,8 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MediaType; */
+import correct.javax.ws.rs.core.MediaType;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -29,14 +30,15 @@ import com.sxp.core.rest.api.Authentifier;
 import com.sxp.core.rest.api.ServletPath;
 
 @ServletPath("/api/items/*")
-@Path("/")
+//@Path("/")
 public class Items {
 
-    @POST
+    /*@POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String add(Item item, @HeaderParam(Authentifier.PARAM_NAME) String token) {
+    @Produces(MediaType.APPLICATION_JSON) * /
+    public String add(Item item, @HeaderParam(Authentifier.PARAM_NAME) String token) { */
+    public String add(Item item, String token) {
         Authentifier auth = Application.getInstance().getAuth();
         UserSyncManager users = new UserSyncManagerImpl();
         User currentUser = users.getUser(auth.getLogin(token), auth.getPassword(token));
@@ -59,20 +61,21 @@ public class Items {
         return json.toJson(item);
     }
 
-    @GET
+    /*@GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getId(
-            @PathParam("id")String id) {
+    public String getId(@PathParam("id")String id){ */
+    public String getId(String id) {
         SyncManager<Item> em = new ItemSyncManagerImpl();
         JsonTools<Item> json = new JsonTools<>(new TypeReference<Item>(){});
         return json.toJson(em.findOneById(id));
     }
 
-    @GET
+    /* @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    public String get(@HeaderParam(Authentifier.PARAM_NAME) String token) {
+    public String get(@HeaderParam(Authentifier.PARAM_NAME) String token) { */
+    public String get(String token) {
         Authentifier auth = Application.getInstance().getAuth();
         UserSyncManager users = new UserSyncManagerImpl();
         User currentUser = users.getUser(auth.getLogin(token), auth.getPassword(token));
@@ -81,10 +84,10 @@ public class Items {
         return json.toJson(em.findAllByAttribute("userid", currentUser.getId()));
     }
 
-    @PUT
+    /*@PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON) */
     public String edit(Item item) {
         SyncManager<Item> em = new ItemSyncManagerImpl();
         em.begin();
@@ -99,11 +102,11 @@ public class Items {
         //return JsonUtils.BeanStringify(item2);
     }
 
-    @DELETE
+    /*@DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String delete(
-            @PathParam("id")int id) {
+    public String delete(@PathParam("id")int id) { */
+    public String delete(int id) {
         //TODO
         return null;
     }

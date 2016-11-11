@@ -3,6 +3,7 @@ package com.sxp.core.controller;
 import java.util.Collection;
 import java.util.Date;
 
+/*/import javax.ws.rs.Consumes;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -12,7 +13,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.QueryParam; */
 import javax.ws.rs.core.MediaType;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -30,14 +31,13 @@ import com.sxp.core.rest.api.Authentifier;
 import com.sxp.core.rest.api.ServletPath;
 
 @ServletPath("/api/users/*")
-@Path("/")
+//@Path("/")
 public class Users {
-    @GET
+    /*@GET
     @Path("/login")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String login(
-            @QueryParam("login") String login,
-            @QueryParam("password") String password) {
+    @Produces(MediaType.APPLICATION_JSON)*/
+    //public String login(@QueryParam("login") String login, @QueryParam("password") String password) {
+    public String login(String login, String password) {
 
         Authentifier auth = Application.getInstance().getAuth();
         UserSyncManager em = new UserSyncManagerImpl();
@@ -72,20 +72,20 @@ public class Users {
 		return "{\"error\": \"true\"}";*/
     }
 
-    @GET
-    @Path("/logout")
-    public String logout(@HeaderParam(Authentifier.PARAM_NAME) String token) {
+    //@GET
+   // @Path("/logout")
+    //public String logout(@HeaderParam(Authentifier.PARAM_NAME) String token) {
+    public String logout(String token) {
         Authentifier auth = Application.getInstance().getAuth();
         auth.deleteToken(token);
         return null;
     }
 
-    @GET
-    @Path("/subscribe")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String subscribe(
-            @QueryParam("login") String login,
-            @QueryParam("password") String password) {
+    //@GET
+    //@Path("/subscribe")
+    //@Produces(MediaType.APPLICATION_JSON)
+    //public String subscribe(@QueryParam("login") String login, @QueryParam("password") String password) {
+    public String subscribe(String login, String password) {
 
         User u = new User();
         u.setNick(login);
@@ -109,28 +109,28 @@ public class Users {
         return json.toJson(token);
     }
 
-    @POST
+    /*@POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)*/
     public String add(User user) {
 
         return null;
     }
 
-    @GET
+    /*@GET
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String get(
-            @PathParam("id") String id) {
+    @Produces(MediaType.APPLICATION_JSON) */
+    //public String get(@PathParam("id") String id) {
+    public String get(String id) {
         SyncManager<User> em = new UserSyncManagerImpl();
         JsonTools<User> json = new JsonTools<>(new TypeReference<User>(){});
         return json.toJson(em.findOneById(id));
     }
 
-    @GET
+    /* @GET
     @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON) */
     public String get() {
         SyncManager<User> em = new UserSyncManagerImpl();
         JsonTools<Collection<User>> json = new JsonTools<>(new TypeReference<Collection<User>>(){});
@@ -138,20 +138,20 @@ public class Users {
         //return JsonUtils.collectionStringify(em.findAll());
     }
 
-    @PUT
+    /*@PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)*/
     public String edit(User user) {
 
         return null;
     }
 
-    @DELETE
+    /*@DELETE
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String delete(
-            @PathParam("id") long id) {
+    @Produces(MediaType.APPLICATION_JSON) */
+    //public String delete(@PathParam("id") long id) {
+    public String delete(long id) {
         return null;
     }
 }

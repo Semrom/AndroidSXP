@@ -25,7 +25,7 @@ public abstract class AbstractHasher implements Hasher {
     /**
      * Create a new {@link Hasher} providing a {@code salt}
      * @param salt A salt that will be added for each hashs.
-     * @see com.crypt.api.hashs.Hasher#setSalt(byte[]) Hasher.setSalt(...)
+     * @see com.sxp.core.crypt.api.hashs.Hasher#setSalt(byte[]) Hasher.setSalt(...)
      */
     public AbstractHasher(byte[] salt) {
         setSalt(salt);

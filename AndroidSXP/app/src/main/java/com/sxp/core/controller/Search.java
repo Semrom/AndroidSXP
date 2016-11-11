@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.ws.rs.GET;
+/*import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.QueryParam; */
 import org.glassfish.jersey.server.ChunkedOutput;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -31,13 +31,15 @@ import com.sxp.core.rest.api.Authentifier;
 import com.sxp.core.rest.api.ServletPath;
 
 @ServletPath("/api/search/*")
-@Path("/")
+//@Path("/")
 public class Search {
-    @GET
-    @Path("/simple2")
+    /*@GET
+    @Path("/simple2") * /
     public ChunkedOutput<String> chunckedSearchByTitle(
             @QueryParam("title") final String title,
-            @HeaderParam(Authentifier.PARAM_NAME) final String token) {
+            @HeaderParam(Authentifier.PARAM_NAME) final String token) { */
+    public ChunkedOutput<String> chunckedSearchByTitle(
+            final String title, final String token) {
         final ChunkedOutput<String> output = new ChunkedOutput<String>(String.class);
 
         new Thread(new Runnable() {
@@ -96,11 +98,14 @@ public class Search {
         return output;
     }
 
-    @GET
+    /*@GET
     @Path("/simple")
     public ChunkedOutput<String> chunckedSearchByTitle2(
             @QueryParam("title") final String title,
-            @HeaderParam(Authentifier.PARAM_NAME) final String token) {
+            @HeaderParam(Authentifier.PARAM_NAME) final String token) {*/
+    public ChunkedOutput<String> chunckedSearchByTitle2(
+            final String title,
+            final String token) {
         final ChunkedOutput<String> output = new ChunkedOutput<String>(String.class);
 
         new Thread(new Runnable() {

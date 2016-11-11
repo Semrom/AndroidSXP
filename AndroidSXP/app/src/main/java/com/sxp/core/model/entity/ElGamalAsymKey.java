@@ -1,11 +1,11 @@
-package com.model.entity;
+package com.sxp.core.model.entity;
 
 import java.io.Serializable;
 import java.math.BigInteger;
 
-import javax.persistence.Entity;
+/*import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElement; */
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.sxp.core.crypt.base.AbstractAsymKey;
 import com.sxp.core.controller.tools.BigIntegerSerializer;
 
-@Entity
+//@Entity
 public class ElGamalAsymKey extends AbstractAsymKey<BigInteger> implements Serializable{
 
     /**
@@ -21,7 +21,7 @@ public class ElGamalAsymKey extends AbstractAsymKey<BigInteger> implements Seria
      */
     private static final long serialVersionUID = -6531626985325397645L;
 
-    @NotNull
+    /*@NotNull
     @XmlElement(name="privateKey")
     @JsonSerialize(using=BigIntegerSerializer.class)
     @JsonFormat(shape=JsonFormat.Shape.STRING)
@@ -36,13 +36,13 @@ public class ElGamalAsymKey extends AbstractAsymKey<BigInteger> implements Seria
     @NotNull
     @XmlElement(name="p")
     @JsonSerialize(using=BigIntegerSerializer.class)
-    @JsonFormat(shape=JsonFormat.Shape.STRING)
+    @JsonFormat(shape=JsonFormat.Shape.STRING) */
     private BigInteger p;
 
-    @NotNull
+    /*@NotNull
     @XmlElement(name="g")
     @JsonSerialize(using=BigIntegerSerializer.class)
-    @JsonFormat(shape=JsonFormat.Shape.STRING)
+    @JsonFormat(shape=JsonFormat.Shape.STRING) */
     private BigInteger g;
 
     @Override

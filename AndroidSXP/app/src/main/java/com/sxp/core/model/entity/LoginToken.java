@@ -1,8 +1,8 @@
 package com.sxp.core.model.entity;
 
-import javax.persistence.Entity;
+//import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class LoginToken {
     private String token;
     private String userid;
