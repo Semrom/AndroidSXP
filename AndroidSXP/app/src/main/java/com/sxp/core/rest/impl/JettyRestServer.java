@@ -46,7 +46,7 @@ public class JettyRestServer  implements RestServer {
 
         	ServletPath path = c.getAnnotation(ServletPath.class);
         	if(path == null) {
-        		throw new RuntimeException("No servlet path annotation on class " + c.getCanonicalName());
+        		throw new RuntimeException("No servlet path XmlElement on class " + c.getCanonicalName());
         	}
         	ServletHolder jerseyServlet = context.addServlet(org.glassfish.jersey.servlet.ServletContainer.class, path.value());
         	jerseyServlet.setInitOrder(0);
