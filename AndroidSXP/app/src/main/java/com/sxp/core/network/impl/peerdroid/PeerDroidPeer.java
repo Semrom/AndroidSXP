@@ -8,7 +8,7 @@ import com.sxp.core.network.api.Peer;
 import com.sxp.core.network.api.service.Service;
 import com.sxp.core.network.utils.IpChecker;
 
-public class PeerDroidPeer implements Peer{
+public class PeerDroidPeer implements Peer {
     private PeerDroidNode node;
     private HashMap<String, Service> services;
 
@@ -27,17 +27,14 @@ public class PeerDroidPeer implements Peer{
     }
 
     @Override
-    public void stop(){ node.stop(); }
+    public void addService(Service service) {
+        PeerDroidService s = (PeerDroidService) service;
+        services.put(service.getName(), service);
+        s.setPeerGroup(node.createGroup(service.getName()));
+    }
 
     @Override
-    public String getIp(){
-        try{
-            return IpChecker.getIp();
-        }catch (Exception exp){
-            exp.printStackTrace();
-        }
-        return null;
-    }
+    public void stop(){ node.stop(); }
 
     @Override
     public Collection<Service> getServices() {
@@ -50,15 +47,18 @@ public class PeerDroidPeer implements Peer{
     }
 
     @Override
-    public void addService(Service service) {
-        PeerDroidService s = (PeerDroidService) service;
-        services.put(service.getName(), service);
-        s.setPeerGroup(node.createGroup(service.getName()));
+    public String getUri() {
+        return node.getPeerId();
     }
 
     @Override
-    public String getUri() {
-        return node.getPeerId();
+    public String getIp(){
+        try{
+            return IpChecker.getIp();
+        }catch (Exception exp){
+            exp.printStackTrace();
+        }
+        return null;
     }
 
     @Override

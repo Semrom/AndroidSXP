@@ -17,4 +17,3 @@ public interface SearchListener <T extends Advertisement>{
      */
     public void notify(Collection<T> result);
 }
-

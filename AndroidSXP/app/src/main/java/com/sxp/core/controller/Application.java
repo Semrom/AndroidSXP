@@ -1,6 +1,12 @@
 package com.sxp.core.controller;
 
-import com.sxp.core.model.syncManager.UserSyncManagerImpl;
+
+/**
+ * Main class
+ * {@link Application} is a singleton
+ * @author Julien Prudhomme
+ *
+ */
 import com.sxp.core.network.api.Peer;
 import com.sxp.core.network.factories.PeerFactory;
 import com.sxp.core.rest.api.Authentifier;
@@ -9,17 +15,11 @@ import com.sxp.core.rest.factories.RestServerFactory;
 
 import java.util.Properties;
 
-/**
- * Main class
- * {@link Application} is a singleton
- * @author Julien Prudhomme
- *
- */
-
 public class Application {
     private static Application instance = null;
     private Peer peer;
     private Authentifier auth;
+
 
     public Application(){
         if(instance != null){
@@ -41,10 +41,7 @@ public class Application {
     public void runForTest(int restPort){
         Properties p = System.getProperties();
         p.put("derby.system.home", "./.db-" + restPort + "/");
-        new UserSyncManagerImpl(); //just init the db
-        setPeer(PeerFactory.createDefaultAndStartPeerForTest());
-        setAuth(AuthentifierFactory.createDefaultAuthentifier());
-        RestServerFactory.createAndStartDefaultRestServer(restPort);
+
     }
 
     public Peer getPeer(){

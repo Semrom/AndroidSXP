@@ -6,16 +6,17 @@ import net.jxta.document.MimeMediaType;
 import com.sxp.core.network.api.Peer;
 import com.sxp.core.network.api.advertisement.Advertisement;
 
-/**
- * Created by
- */
-
 public class PeerDroidAdvertisement implements Advertisement{
     private Advertisement adv;
 
     public PeerDroidAdvertisement(Advertisement adv) {
-        System.out.println("Adv : \n" + new XMLOutputter().outputString(adv.getDocument()));
+        //System.out.println("Adv : \n" + new XMLOutputter().outputString(adv.getDocument()));
         this.adv = adv;
+    }
+
+    public AdvertisementBridge getAdvertisementBridge() {
+        System.out.println(new AdvertisementBridge(this).getDocument(MimeMediaType.XML_DEFAULTENCODING));
+        return new AdvertisementBridge(this);
     }
 
     @Override
@@ -27,12 +28,6 @@ public class PeerDroidAdvertisement implements Advertisement{
     public String getAdvertisementType() {
         return "jxta:" + getName();
     }
-
-    public AdvertisementBridge getAdvertisementBridge() {
-        System.out.println(new AdvertisementBridge(this).getDocument(MimeMediaType.XML_DEFAULTENCODING));
-        return new AdvertisementBridge(this);
-    }
-
 
     @Override
     public void publish(Peer peer) {

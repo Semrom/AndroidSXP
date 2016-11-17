@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import com.sxp.core.rest.api.Authentifier;
 
-public class SimpleAuthentifier implements Authentifier{
+public class SimpleAuthentifier  implements Authentifier{
     private class Logins {
         public String login;
         public String password;

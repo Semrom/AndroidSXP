@@ -1,8 +1,5 @@
 package com.sxp.core.network.impl.peerdroid;
 
-/**
- * Created by
- */
 import com.sxp.core.network.api.Messages;
 import com.sxp.core.network.api.Peer;
 import com.sxp.core.network.api.SearchListener;
@@ -35,12 +32,13 @@ import net.jxta.pipe.PipeMsgListener;
 import net.jxta.pipe.PipeService;
 import net.jxta.protocol.PipeAdvertisement;
 
-public class PeerDroidService implements Service, DiscoveryListener, PipeMsgListener{
+public class PeerDroidService  implements Service, DiscoveryListener, PipeMsgListener {
     protected PeerGroup pg = null;
     private SearchListener<Advertisement> currentSl;
-    protected String name;
+
     protected String peerUri = null;
     protected HashMap<String, ServiceListener> listeners = new HashMap<>();
+    protected String name;
 
     /**
      * {@inheritDoc}
@@ -50,6 +48,19 @@ public class PeerDroidService implements Service, DiscoveryListener, PipeMsgList
         return name;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void initAndStart(Peer peer) {
+        if(!(peer instanceof PeerDroidPeer)) {
+            throw new RuntimeException("Need a PeerDroid Peer to run a Jxta service");
+        }
+        PeerDroidPeer jxtaPeer = (PeerDroidPeer) peer;
+        jxtaPeer.addService(this);
+        peerUri = peer.getUri();
+        createInputPipe();
+    }
 
     /**
      * {@inheritDoc}
@@ -63,20 +74,6 @@ public class PeerDroidService implements Service, DiscoveryListener, PipeMsgList
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void initAndStart(Peer peer) {
-        if(!(peer instanceof PeerDroidPeer)) {
-            throw new RuntimeException("Need a Jxta Peer to run a Jxta service");
-        }
-        PeerDroidPeer jxtaPeer = (PeerDroidPeer) peer;
-        jxtaPeer.addService(this);
-        peerUri = peer.getUri();
-        createInputPipe();
     }
 
     private void createInputPipe() {
@@ -163,7 +160,6 @@ public class PeerDroidService implements Service, DiscoveryListener, PipeMsgList
         return msg;
     }
 
-
     @Override
     public void sendMessages(Messages messages, String... uris) {
         Message message = toJxtaMessage(messages);
@@ -186,7 +182,6 @@ public class PeerDroidService implements Service, DiscoveryListener, PipeMsgList
         }
     }
 
-
     @Override
     public void pipeMsgEvent(PipeMsgEvent event) {
         Messages m = toMessages(event.getMessage());
@@ -195,12 +190,10 @@ public class PeerDroidService implements Service, DiscoveryListener, PipeMsgList
         }
     }
 
-
     @Override
     public void addListener(ServiceListener l, String who) {
         listeners.put(who, l);
     }
-
 
     @Override
     public void removeListener(String who) {

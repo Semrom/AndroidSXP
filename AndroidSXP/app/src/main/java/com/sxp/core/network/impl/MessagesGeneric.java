@@ -5,9 +5,7 @@ import java.util.HashMap;
 import com.sxp.core.network.api.Messages;
 
 public class MessagesGeneric implements Messages{
-
     private HashMap<String, String> fields = new HashMap<>();
-
 
     @Override
     public String getMessage(String name) {
@@ -32,5 +30,4 @@ public class MessagesGeneric implements Messages{
     public void addField(String name, String value) {
         fields.put(name, value);
     }
-
 }

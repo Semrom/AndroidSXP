@@ -6,14 +6,16 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-import com.google.common.reflect.ClassPath;
-
 import com.sxp.core.rest.api.RestServer;
 import com.sxp.core.rest.api.ServletPath;
+
+import com.google.common.reflect.ClassPath;
 
 public class JettyRestServer  implements RestServer {
     private ServletContextHandler context;
     private Server server;
+
+
     /**
      * {@inheritDoc}
      */

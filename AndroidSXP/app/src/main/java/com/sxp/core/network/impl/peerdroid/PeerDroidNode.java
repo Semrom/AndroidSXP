@@ -13,7 +13,7 @@ import net.jxta.peergroup.PeerGroup;
 import java.io.File;
 import java.io.IOException;
 
-public class PeerDroidNode implements Node{
+public class PeerDroidNode implements Node {
     private boolean initialized = false;
     private NetworkManager networkManager = null;
     private PeerGroup defaultPeerGroup = null;

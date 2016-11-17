@@ -1,10 +1,9 @@
 package com.sxp.core.network.api;
 
+import com.sxp.core.network.api.service.Service;
 
 import java.io.IOException;
 import java.util.Collection;
-
-import com.sxp.core.network.api.service.Service;
 
 /**
  * Interface for the whole peer
@@ -19,6 +18,20 @@ public interface Peer {
      * @throws IOException
      */
     public void start(String cache, int port, String ...ips) throws IOException;
+
+    /**
+     * Add a service to this Peer
+     * @param service
+     */
+    public void addService(Service service);
+
+    /**
+     * Return a string representation of the peer id (uri)
+     * @return
+     */
+    public String getUri();
+
+    public void bootstrap(String ...ips);
 
     /**
      * Stop the server
@@ -43,18 +56,4 @@ public interface Peer {
      * @return The Service
      */
     public Service getService(String name);
-
-    /**
-     * Add a service to this Peer
-     * @param service
-     */
-    public void addService(Service service);
-
-    /**
-     * Return a string representation of the peer id (uri)
-     * @return
-     */
-    public String getUri();
-
-    public void bootstrap(String ...ips);
 }

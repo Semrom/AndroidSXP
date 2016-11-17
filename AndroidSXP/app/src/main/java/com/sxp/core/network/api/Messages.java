@@ -1,5 +1,6 @@
 package com.sxp.core.network.api;
 
+
 public interface Messages {
     /**
      * Get message content by this name (field)

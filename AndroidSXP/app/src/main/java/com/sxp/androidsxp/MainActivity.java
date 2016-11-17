@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.sxp.core.controller.Application;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
              public void onClick(View v) {
              Intent webViewActivity = new Intent(MainActivity.this, WebViewActivity.class);
              startActivity(webViewActivity);
-                 //process test
+             Application application = new Application();
+             application.run();
              }
          }
 

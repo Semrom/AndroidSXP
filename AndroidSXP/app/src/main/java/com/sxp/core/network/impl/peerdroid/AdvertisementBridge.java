@@ -1,12 +1,5 @@
 package com.sxp.core.network.impl.peerdroid;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Enumeration;
-import java.util.Map;
-
-import org.jdom2.Element;
-
 import net.jxta.document.Advertisement;
 import net.jxta.document.Attributable;
 import net.jxta.document.Document;
@@ -15,6 +8,13 @@ import net.jxta.document.StructuredDocument;
 import net.jxta.document.StructuredDocumentFactory;
 import net.jxta.document.TextElement;
 import net.jxta.id.ID;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Enumeration;
+import java.util.Map;
+
+import org.jdom2.Element;
 
 public class AdvertisementBridge extends Advertisement{
     private com.sxp.core.network.api.advertisement.Advertisement advertisement;

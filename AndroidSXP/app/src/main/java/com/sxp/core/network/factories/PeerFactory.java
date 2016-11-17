@@ -1,9 +1,9 @@
 package com.sxp.core.network.factories;
 
 import com.sxp.core.network.api.Peer;
+
 import com.sxp.core.network.api.service.Service;
 import com.sxp.core.network.impl.peerdroid.PeerDroidItemService;
-import com.sxp.core.network.impl.peerdroid.PeerDroidItemsSenderService;
 import com.sxp.core.network.impl.peerdroid.PeerDroidPeer;
 
 import java.io.IOException;
@@ -32,19 +32,6 @@ public class PeerFactory {
     }
 
     /**
-     * Create a the default implementation of {@link Peer} and start it
-     * @return an initialized and started {@link Peer}
-     */
-    public static Peer createDefaultAndStartPeer() {
-        //to do set switch case to allow m
-        Peer p = createAndStartPeer("android", ".peercache", 9578);
-        Service itemService = new PeerDroidItemService();
-        itemService.initAndStart(p);
-        return p;
-    }
-
-
-    /**
      * Create, initialize, and start a {@link PeerDroidPeer}
      * @return an initialized and started {@link Peer}
      */
@@ -62,23 +49,20 @@ public class PeerFactory {
         return peer;
     }
 
-    public static Peer createDefaultAndStartPeerForTest() {
-        Random r = new Random();
-        String cache = ".peer" + r.nextInt(10000);
-        //int port = 9800 + r.nextInt(100);
-        int port = 9800;
-        System.out.println("jxta will run on port " + port);
-        Peer p = createAndStartPeer("jxta", cache, port);
-
-        Service itemService = new PeerDroidItemService();
-        itemService.initAndStart(p);
-
-        Service itemsSender = new PeerDroidItemsSenderService();
-        itemsSender.initAndStart(p);
-        return p;
-    }
-
     public static PeerDroidPeer createPeerDroidPeer(){
         return new PeerDroidPeer();
     }
+
+    /**
+     * Create a the default implementation of {@link Peer} and start it
+     * @return an initialized and started {@link Peer}
+     */
+    public static Peer createDefaultAndStartPeer(){
+        //to do set switch case to allow m
+        Peer p = createAndStartPeer("android", ".peercache", 9578);
+        Service itemService = new PeerDroidItemService();
+        itemService.initAndStart(p);
+        return p;
+    }
+
 }

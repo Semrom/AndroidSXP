@@ -7,6 +7,7 @@ import java.io.IOException;
  * @author Julien Prudhomme
  *
  */
+
 public interface Node {
     /**
      * Initialize peer to peer node.

@@ -13,12 +13,21 @@ import com.sxp.core.network.api.SearchListener;
 import com.sxp.core.network.api.ServiceListener;
 import com.sxp.core.network.api.advertisement.Advertisement;
 
+
 public interface Service {
     /**
      * Service's name. It's used to identify the service and retrieve it via {@link Peer#getService(String)}
      * @return the service name.
      */
     public String getName();
+
+    /**
+     * Init and starts this service for this peer
+     * This method should me called by a {@link Peer} instance
+     * when added via {@link Peer#addService(Service)}
+     * @param peer the peer that serve that service
+     */
+    public void initAndStart(Peer peer);
 
     /**
      * Search features on this service. The results will be notified on a {@link SearchListener}
@@ -31,14 +40,6 @@ public interface Service {
      * @param adv
      */
     public void publishAdvertisement(Advertisement adv);
-
-    /**
-     * Init and starts this service for this peer
-     * This method should me called by a {@link Peer} instance
-     * when added via {@link Peer#addService(Service)}
-     * @param peer the peer that serve that service
-     */
-    public void initAndStart(Peer peer);
 
     /**
      * Add a listener to this service

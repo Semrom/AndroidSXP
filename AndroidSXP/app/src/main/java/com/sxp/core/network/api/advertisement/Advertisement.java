@@ -13,6 +13,7 @@ import com.sxp.core.network.api.service.Service;
  * @author Julien Prudhomme
  *
  */
+
 public interface Advertisement {
     /**
      * Get the advertisement name
@@ -59,5 +60,4 @@ public interface Advertisement {
     public String getSourceURI();
 
     public void setSourceURI(String uri);
-
 }

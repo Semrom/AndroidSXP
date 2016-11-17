@@ -1,4 +1,5 @@
 package com.sxp.core.network.utils;
+
 /* Copyright 2015 Pablo Arrighi, Sarah Boukris, Mehdi Chtiwi,
    Michael Dubuis, Kevin Perrot, Julien Prudhomme.
 

@@ -1,5 +1,6 @@
 package com.sxp.core.rest.api;
 
+
 public interface Authentifier {
     public static final String PARAM_NAME = "Auth-Token";
     /**
