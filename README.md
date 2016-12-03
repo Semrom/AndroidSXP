@@ -4,4 +4,5 @@ Projet étudiant de Génie Logiciel réalisé en 2016 par :
 * KATENDE Jeef
 * SEMLER Romain
 * SOULIER Rémi   
+
 Plus d'infos : voir le Wiki.
