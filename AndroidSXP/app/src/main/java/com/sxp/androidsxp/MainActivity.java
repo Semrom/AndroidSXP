@@ -1,11 +1,13 @@
 package com.sxp.androidsxp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.sxp.androidsxp.demo.SxpLoginDemoActivity;
 import com.sxp.core.controller.Application;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,5 +38,16 @@ public class MainActivity extends AppCompatActivity {
          }
 
         );
+
+        Button sxpGuiButton = (Button)findViewById(R.id.activity_sxp_demo);
+        sxpGuiButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent guiViewActivity = new Intent(MainActivity.this, SxpLoginDemoActivity.class);
+                startActivity(guiViewActivity);
+                Application application = new Application();
+                application.run();
+            }
+        });
     }
 }

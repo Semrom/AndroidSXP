@@ -21,13 +21,14 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
     defaultConfig {
-
         applicationId "com.sxp.androidsxp"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         debug {
@@ -48,5 +49,9 @@ android {
     }
     dexOptions{
         jumboMode true
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_7
     }
 }

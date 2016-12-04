@@ -8,10 +8,23 @@
     <string name="remi">SOULIER Rémi</string>
     <string name="button_start">Commencer</string>
     <string name="button_about">À Propos</string>
+    <string name="button_demo_gui" >Demo GUI</string>
+    <string name="sxp_identification_label" >Identifiant</string>
+    <string name="sxp_password_label" >Mot de passe</string>
+    <string name="sxp_submit_label" >Se connecter</string>
+    <string name="sxp_registration_label" >S\'enregister</string>
+    <string name="sxp_subscription_label" >Enregister</string>
+    <string name="sxp_cancel_label" >Annuller</string>
+    <string name="sxp_server_label" >Serveur</string>
 
     <!-- activity_about -->
     <string name="about_title">À Propos</string>
     <string name="about_description">Android Secure eXchange Protocol est une application créée
     dans le cadre des cours de Génie Logiciel, en Master 1 Informatique, à l\'Université d\'Aix-Marseille.</string>
     <string name="button_back">Retour</string>
+
+    <!-- On processing  event -->
+    <string name="missing_identification_message" >Entrez-votre identifiant</string>
+    <string name="missing_password_message" >Entrez- votre mot de passe </string>
+    <string name="authentication_error_message" >Les informations fournies sont incorrectes</string>
 </resources>

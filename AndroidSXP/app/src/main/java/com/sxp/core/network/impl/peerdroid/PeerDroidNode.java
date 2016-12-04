@@ -1,7 +1,14 @@
 package com.sxp.core.network.impl.peerdroid;
 
+
+
+import android.content.Context;
+import android.os.Environment;
+
+import com.sxp.androidsxp.MainActivity;
 import com.sxp.core.network.api.Node;
 import com.sxp.core.network.utils.IpChecker;
+import com.sxp.androidsxp.demo.*;
 import net.jxta.id.IDFactory;
 import net.jxta.exception.PeerGroupException;
 import net.jxta.peergroup.PeerGroupID;
@@ -20,9 +27,16 @@ public class PeerDroidNode implements Node {
 
     @Override
     public void initialize(String cacheFolder, String name, boolean persistent) throws IOException {
-        File configFile = new File("." + System.getProperty("file.separator") + cacheFolder);
+        //File configFile = new File("." + System.getProperty("file.separator") + cacheFolder);
+
+        File configFile = new File(Environment.getDataDirectory() + File.separator + cacheFolder);
+
+        if(!configFile.exists()){
+            throw new IOException("Encounterng trouble making cache file please check wheter your credentials allows to do so.");
+        }
         networkManager = initializeNetworkManager(configFile, name, persistent);
         initialized = true;
+        System.out.println(configFile.getAbsolutePath());
     }
 
     @Override
@@ -47,11 +61,11 @@ public class PeerDroidNode implements Node {
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Error on config file");
-            System.exit(-1);
+            /*System.exit(-1); */
         } catch (PeerGroupException e) {
             e.printStackTrace();
             System.err.println("error while creating main peer group");
-            System.exit(-1);
+            /*System.exit(-1); */
             //can't continue
         }
 
@@ -60,7 +74,7 @@ public class PeerDroidNode implements Node {
 
     @Override
     public boolean isStarted() {
-        return isInitialized(); // && networkManager.isStarted();
+        return isInitialized();
     }
 
     @Override

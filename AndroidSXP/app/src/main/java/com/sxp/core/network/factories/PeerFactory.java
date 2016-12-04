@@ -11,7 +11,7 @@ import java.util.Random;
 
 /**
  * {@link Peer} factory
- * @author Julien Prudhomme
+ * @author Jeef Katende
  *
  */
 public class PeerFactory {
@@ -36,7 +36,7 @@ public class PeerFactory {
      * @return an initialized and started {@link Peer}
      */
     public static Peer createAndStartPeer(String impl, String tmpFolder, int port) {
-        Peer peer;
+        Peer peer = null;
         switch(impl) {
             case "android": peer = createPeerDroidPeer(); break;
             default: throw new RuntimeException(impl + "doesn't exist");
@@ -59,7 +59,7 @@ public class PeerFactory {
      */
     public static Peer createDefaultAndStartPeer(){
         //to do set switch case to allow m
-        Peer p = createAndStartPeer("android", ".peercache", 9578);
+        Peer p = createAndStartPeer("android", "peercache", 9578);
         Service itemService = new PeerDroidItemService();
         itemService.initAndStart(p);
         return p;
